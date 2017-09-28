@@ -1,24 +1,44 @@
-package com.routeyou.util;
-
-/**
- * Created by Anoop M on 9/8/2017.
+/*
+ * @author   Anoop M <anoopmaddasseri@gmail.com>
+ * @version  1
+ * @since    23th July 2017
+ *
+ * P.S. Increment version by 1 when editing
+ *
  */
+package com.util;
+
+import com.hs.gpxparser.GPXWriter;
+import com.hs.gpxparser.modal.GPX;
+import com.hs.gpxparser.modal.Metadata;
+import com.hs.gpxparser.modal.Person;
+import com.hs.gpxparser.modal.Track;
+import com.hs.gpxparser.modal.TrackSegment;
+import com.hs.gpxparser.modal.Waypoint;
+import com.routeyou.model.RouteRecordRequest;
+import com.routeyou.model.WayPoint;
+
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 public class GPXWriterHelper {
 
     public GPXWriterHelper() {
     }
 
-   /*
-   public String createNewRoute(final List<WayPoint> wayPoints, final RouteRecordRequest routeRecordRequest) {
+    public String createNewRoute(final List<WayPoint> wayPoints, final RouteRecordRequest routeRecordRequest) {
         try {
             GPX gpx = new GPX();
 
-            //GPX creator & version
+            // GPX creator & version
             gpx.setCreator(routeRecordRequest.creator);
             gpx.setVersion(routeRecordRequest.version);
 
-            //GPX Meta data
+            // GPX Meta data
             Person person = new Person();
             person.setName(routeRecordRequest.authorId);
 
@@ -26,7 +46,7 @@ public class GPXWriterHelper {
             metadata.setAuthor(person);
             metadata.addExtensionData("refrouteid", routeRecordRequest.routeId);
 
-            //GPX Track
+            // GPX Track
             TrackSegment trackSegment = new TrackSegment();
 
             for (WayPoint wayPointObject : wayPoints) {
@@ -49,7 +69,7 @@ public class GPXWriterHelper {
             track.setDescription(routeRecordRequest.description);
             track.addTrackSegment(trackSegment);
 
-            //GPX Track Segment
+            // GPX Track Segment
             gpx.setMetadata(metadata);
             gpx.addTrack(track);
 
@@ -61,5 +81,4 @@ public class GPXWriterHelper {
         }
         return null;
     }
-   */
 }
